@@ -1,7 +1,16 @@
 {
-  "name": "pluralsight-redux-starter",
+  "name": "react-redux-starter",
   "version": "1.0.0",
   "description": "Starter kit for React and Redux",
+  "scripts": {
+    "prestart": "babel-node tools/startMessage.js",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch",
+    "open:src": "babel-node tools/srcServer.js",
+    "lint": "node_modules/.bin/esw webpack.config.* src tools",
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
+  },
   "author": "Ebuka Umeh",
   "license": "MIT",
   "dependencies": {
@@ -57,7 +66,6 @@
     "webpack-hot-middleware": "2.10.0"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
+    "type": "git"
   }
 }
